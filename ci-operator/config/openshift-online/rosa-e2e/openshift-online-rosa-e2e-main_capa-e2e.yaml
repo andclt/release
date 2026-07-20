@@ -1,0 +1,37 @@
+base_images:
+  rosa-aws-cli:
+    name: rosa-aws-cli
+    namespace: ci
+    tag: latest
+build_root:
+  image_stream_tag:
+    name: builder
+    namespace: ocp
+    tag: rhel-9-golang-1.26-openshift-4.23
+releases:
+  latest:
+    candidate:
+      product: ocp
+      stream: nightly
+      version: "4.22"
+resources:
+  '*':
+    limits:
+      memory: 4Gi
+    requests:
+      cpu: 100m
+      memory: 200Mi
+tests:
+- as: capa-e2e
+  cron: 0 8 * * *
+  steps:
+    cluster_profile: rosa-e2e-01
+    env:
+      REGION: us-east-1
+      DEPLOYMENT_MODE: standalone
+    workflow: openshift-online-capa-e2e
+  timeout: 5h0m0s
+zz_generated_metadata:
+  branch: main_capa-e2e
+  org: openshift-online
+  repo: rosa-e2e

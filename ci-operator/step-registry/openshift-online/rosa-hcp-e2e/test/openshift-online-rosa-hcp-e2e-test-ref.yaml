@@ -1,0 +1,27 @@
+ref:
+  as: openshift-online-rosa-hcp-e2e-test
+  from: ansible
+  grace_period: 10m
+  cli: latest
+  commands: openshift-online-rosa-hcp-e2e-test-commands.sh
+  resources:
+    requests:
+      cpu: 100m
+      memory: 300Mi
+  env:
+  - name: ROSA_HCP_E2E_REPO
+    default: "https://github.com/stolostron/rosa-hcp-e2e-test"
+    documentation: Repository URL for the stolostron rosa-hcp-e2e-test project.
+  - name: ROSA_HCP_E2E_BRANCH
+    default: "main"
+    documentation: Branch of the rosa-hcp-e2e-test repository to use.
+  - name: REGION
+    default: "us-east-1"
+    documentation: The AWS region for the ROSA HCP cluster.
+  - name: DEPLOYMENT_MODE
+    default: "standalone"
+    documentation: Deployment mode for the test suite (standalone or mce).
+  documentation: |-
+    Clones the stolostron/rosa-hcp-e2e-test repository and runs the
+    ROSA HCP e2e test suite against the management cluster with
+    CAPI/CAPA controllers already installed.

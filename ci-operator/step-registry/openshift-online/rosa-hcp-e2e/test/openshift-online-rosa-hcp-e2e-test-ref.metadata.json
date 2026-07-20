@@ -1,0 +1,15 @@
+{
+	"path": "openshift-online/rosa-hcp-e2e/test/openshift-online-rosa-hcp-e2e-test-ref.yaml",
+	"owners": {
+		"approvers": [
+			"tinaafitz",
+			"serngawy",
+			"andclt"
+		],
+		"reviewers": [
+			"andclt",
+			"tinaafitz",
+			"serngawy"
+		]
+	}
+}

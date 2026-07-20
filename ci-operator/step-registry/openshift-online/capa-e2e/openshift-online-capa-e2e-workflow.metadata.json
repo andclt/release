@@ -1,0 +1,15 @@
+{
+	"path": "openshift-online/capa-e2e/openshift-online-capa-e2e-workflow.yaml",
+	"owners": {
+		"approvers": [
+			"tinaafitz",
+			"serngawy",
+			"andclt"
+		],
+		"reviewers": [
+			"andclt",
+			"tinaafitz",
+			"serngawy"
+		]
+	}
+}

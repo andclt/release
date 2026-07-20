@@ -1,0 +1,16 @@
+workflow:
+  as: openshift-online-capa-e2e
+  steps:
+    pre:
+      - chain: ipi-conf-aws
+      - chain: ipi-install
+    test:
+      - ref: openshift-online-rosa-hcp-e2e-test
+    post:
+      - chain: ipi-deprovision
+        best_effort: true
+  documentation: |-
+    Provisions an OCP cluster on AWS via IPI, then runs the
+    stolostron/rosa-hcp-e2e-test suite which installs CAPI/CAPA
+    controllers via Helm and executes the e2e tests. The cluster
+    is deprovisioned after testing completes.
